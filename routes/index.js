@@ -1,15 +1,10 @@
-const fs = require("fs");
+const requireDir = require("require-dir");
 
 function setRoutes(app) {
-  const files = fs.readdirSync("./routes");
-  const routes = files
-    .filter((r) => r !== "index.js")
-    .map((r) => {
-      return r.slice(0, -3);
-    });
+  const routes = requireDir(".");
 
-  for (const route of routes) {
-    app.use(`/${route}`, require(`./${route}`));
+  for (const route of Object.entries(routes)) {
+    app.use(`/${route[0]}`, route[1]);
   }
 }
 
