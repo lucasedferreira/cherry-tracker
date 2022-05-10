@@ -1,0 +1,17 @@
+development:
+  dialect: postgres
+  datasource: host=localhost dbname=tracker user=postgres password=changeme sslmode=disable
+  table: migrations
+  dir: database/migrations
+
+seeder:
+  dialect: postgres
+  datasource: host=localhost dbname=tracker user=postgres password=changeme sslmode=disable
+  table: seeds_migrations
+  dir: database/migrations/seeders
+
+production:
+  dialect: postgres
+  datasource: host=${DATABASE_HOST} dbname=${DATABASE_NAME} user=${DATABASE_USER} password=${DATABASE_PASSWORD}
+  table: migrations
+  dir: database/migrations
