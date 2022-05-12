@@ -5,7 +5,10 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE public.users (
   id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
   name character varying(255) NOT NULL,
-  created_at timestamp with time zone DEFAULT now() NOT NULL
+  email character varying(255),
+  spotify_id character varying(255),
+  created_at timestamp with time zone DEFAULT now() NOT NULL,
+  complement jsonb
 );
 
 CREATE TABLE public.top_musics (

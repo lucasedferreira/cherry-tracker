@@ -70,7 +70,7 @@ module.exports = class SpotifyHermes {
         authType: "basic",
       })
         .then(({ data }) => {
-          console.log("refreshed");
+          console.log("refreshed", data);
           this.accessToken = data.access_token;
           if (data.refresh_token) this.refreshToken = data.refresh_token;
           resolve();
@@ -90,6 +90,14 @@ module.exports = class SpotifyHermes {
         client_id: process.env.SPOTIFY_CLIENT_ID,
         client_secret: process.env.SPOTIFY_CLIENT_SECRET,
       },
+    });
+  }
+
+  async getUserInfo() {
+    return await this.#request({
+      url: `${this.baseUrl}/me`,
+      method: "get",
+      authType: "bearer",
     });
   }
 

@@ -6,7 +6,7 @@ router.get("/test", async (req, res) => {
   console.log("=== entrou ===");
   const accessToken = "BQA2zWzivm4aBhdG2qYTsKJvC4UH7r1k8wP5QZnsKfE0tqNN5eamSv-GEXENpBHb6Cyanmj_o8d2t620l3idnTfk1II32wGIio2fteTqbfEuWXPp0cz58mWU5YzPf4hyHxDUxJmmyvPlqhhu9vqYa1MJLcSkBe0VmiEoEOronFGNCw";
   const refreshToken = "AQDZSOZrCtDcK-6oe6onye-hCj89hSL3_7dCywCGMRF3eLPfwdMoF_BEkCEzAPF4sjh5VvRbWYOE0PmetG5JwWnZPRUVrooB10zoU0S_L8Gx5RcaMhupqXUdz-ILIO_Tq3I";
-  const test = await new SpotifyService().getTopMusics(accessToken, refreshToken, "short_term");
+  const test = await new SpotifyService().getUserInfo(accessToken, refreshToken);
   res.send(test);
   console.log("saiu");
 });

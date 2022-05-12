@@ -1,7 +1,18 @@
 const SpotifyHermes = require('./hermes');
+const UserRepository = require('../user/repository');
 
 module.exports = class SpotifyService {
   constructor() {}
+
+  async getUserInfo(accessToken, refreshToken) {
+    // const spotifyHermes = new SpotifyHermes(accessToken, refreshToken);
+    // const response = await spotifyHermes.getUserInfo();
+    
+    const userRepository = new UserRepository();
+    await userRepository.save();
+
+    return response.data;
+  }
 
   async getTopMusics(accessToken, refreshToken, timeRange) {
     try {
