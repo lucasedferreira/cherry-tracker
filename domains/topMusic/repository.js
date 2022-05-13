@@ -1,8 +1,8 @@
 const sequelize = require('../../database/config');
 
-module.exports = class UserRepository {
+module.exports = class TopMusicRepository {
   constructor() {
-    this.model = sequelize.instance.models.User;
+    this.model = sequelize.instance.models.TopMusic;
   }
 
   save(data) {

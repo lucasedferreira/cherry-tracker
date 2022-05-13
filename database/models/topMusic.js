@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    'User',
+  const TopMusic = sequelize.define(
+    'TopMusic',
     {
       id: {
         type: DataTypes.UUID,
@@ -11,22 +11,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      email: {
-        type: DataTypes.STRING
+      rank: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false
       },
       spotify_id: {
         type: DataTypes.STRING
-      },
-      spotify_access_token: {
-        type: DataTypes.STRING
-      },
-      spotify_refresh_token: {
-        type: DataTypes.STRING
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
       },
       complement: {
         type: DataTypes.JSONB,
@@ -34,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
-      tableName: 'users',
+      tableName: 'top_musics',
       underscored: true,
       timestamps: false
     }
   );
 
-  return User;
+  return TopMusic;
 };

@@ -5,11 +5,11 @@ module.exports = class SpotifyService {
   constructor() {}
 
   async getUserInfo(accessToken, refreshToken) {
-    // const spotifyHermes = new SpotifyHermes(accessToken, refreshToken);
-    // const response = await spotifyHermes.getUserInfo();
+    const spotifyHermes = new SpotifyHermes(accessToken, refreshToken);
+    const response = await spotifyHermes.getUserInfo();
     
-    const userRepository = new UserRepository();
-    await userRepository.save();
+    // const userRepository = new UserRepository();
+    // await userRepository.save();
 
     return response.data;
   }

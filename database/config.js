@@ -1,11 +1,11 @@
 const Sequelize = require("sequelize");
 const importModels = require("./models");
+const associations = require('./associations');
 
 class DB {
   constructor() {
-    console.log('opaa');
     this.instance;
-    this.init();
+    // this.init();
   }
 
   async init() {
@@ -24,8 +24,8 @@ class DB {
       await sequelize.authenticate();
       this.instance = sequelize;
 
-console.log(this.instance, 'entrou');
       this.instance = importModels(this.instance);
+      associations(this.instance.models)
     }
   }
 }

@@ -8,7 +8,7 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-router.get("/", function (req, res) {
+router.get("/", async (req, res) => {
   await new TopMusicService().saveTodayTop10();
   res.send("user");
 });

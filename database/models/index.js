@@ -20,8 +20,6 @@ module.exports = (sequelize) => {
       models[model.name] = model;
     });
 
-  console.log(models);
-
   Object.keys(models).forEach((modelName) => {
     if (models[modelName].associate) {
       models[modelName].associate(db);

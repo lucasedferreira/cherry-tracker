@@ -7,14 +7,18 @@ CREATE TABLE public.users (
   name character varying(255) NOT NULL,
   email character varying(255),
   spotify_id character varying(255),
+  spotify_access_token character varying(255),
+  spotify_refresh_token character varying(255),
   created_at timestamp with time zone DEFAULT now() NOT NULL,
   complement jsonb
 );
 
 CREATE TABLE public.top_musics (
   id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
+  name character varying(255),
   rank int NOT NULL,
   date timestamp with time zone NOT NULL,
+  spotify_id character varying(255),
   user_id uuid NOT NULL,
   complement jsonb
 );
