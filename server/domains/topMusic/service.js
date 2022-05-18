@@ -1,8 +1,10 @@
 const moment = require("moment");
 const Promise = require("bluebird");
+const nodeHtmlToImage = require('node-html-to-image')
 const SpotifyService = require("../spotify/service");
 const UserRepository = require("../user/repository");
 const TopMusicRepository = require("../topMusic/repository");
+const TopMusicHermes = require("../topMusic/hermes");
 
 module.exports = class TopMusicService {
   constructor() {}
@@ -36,6 +38,20 @@ module.exports = class TopMusicService {
           concurrency: 10,
         }
       );
+    }
+  }
+
+  async generateImage() {
+    try {
+      const response = await new TopMusicHermes().getTop10Html();
+      // console.log('response', response);
+
+      nodeHtmlToImage({
+        output: '/Users/iuk/projects/cherry-tracker/server/image.png',
+        html: response.data
+      }).then(() => console.log('foi'));
+    } catch (error) {
+      console.log(error)
     }
   }
 };

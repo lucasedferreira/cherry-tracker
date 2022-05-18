@@ -34,4 +34,10 @@ const SpotifyHermes = require("../domains/spotify/hermes");
 //   res.send("test");
 // });
 
+const Top10Service = require('../domains/topMusic/service')
+router.get("/image", async (req, res) => {
+  await new Top10Service().generateImage();
+  res.send("test");
+});
+
 module.exports = router;
