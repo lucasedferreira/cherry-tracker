@@ -4,6 +4,6 @@
 
 <style scoped lang="scss">
 .nav {
-  background-color: #c0c0c0;
+  background-color: #f7d1dc;
 }
 </style>
