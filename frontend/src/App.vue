@@ -1,35 +1,15 @@
 <script setup>
-import Nav from "@/components/Nav.vue";
-import Card from "@/components/card/Card.vue";
+import { RouterView } from 'vue-router'
 
-const top10 = [
-  {
-    id: 1,
-    name: "Tension - Dreamcatcher",
-    image: "https://i.scdn.co/image/ab67616d00001e02dd525e34b35a55ca3763e28d",
-  },
-  {
-    id: 4,
-    name: "PTT (Paint The Town) - LOONA",
-    image: ""
-  },
-  {
-    id: 2,
-    name: "Fine - Taeyeon",
-    image: "https://i.scdn.co/image/ab67616d00001e02dd525e34b35a55ca3763e28d",
-  },
-  {
-    id: 3,
-    name: "BOCA - Dreamcatcher",
-    image: "https://i.scdn.co/image/ab67616d00001e02dd525e34b35a55ca3763e28d",
-  },
-];
+import Nav from "@/components/Nav.vue";
 </script>
 
 <template>
   <div class="container">
     <Nav class="nav"></Nav>
-    <Card class="card" :top10=top10></Card>
+    <main class="page">
+      <RouterView />
+    </main>
   </div>
 </template>
 
@@ -38,7 +18,7 @@ const top10 = [
   grid-column: full-start / full-end;
 }
 
-.card {
+.page {
   grid-column: center-start / center-end;
   @media only screen and (max-width: $bp-small) {
     grid-column: 1 / -1;
