@@ -12,7 +12,7 @@ defineProps({
     <h2 class="list__title">Top Songs</h2>
     <div class="list__item" v-for="(item, index) in items" :key="item.id">
       <div class="list__item--rank">{{ ++index }}</div>
-      <div class="list__item--name">{{ item.name }}</div>
+      <div class="list__item--name">{{ `${item.name} - ${item.artist}` }}</div>
     </div>
   </div>
 </template>
@@ -27,6 +27,10 @@ defineProps({
     font-size: 4rem;
     text-align: center;
     color: #ec1e1e;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 5rem;
+    }
   }
 
   &__item {
