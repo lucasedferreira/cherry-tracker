@@ -83,12 +83,11 @@ module.exports = class SpotifyHermes {
     return await this.#request({
       method: "post",
       url: `${this.authUrl}/api/token`,
+      authType: "basic",
       data: {
         grant_type: "authorization_code",
         redirect_uri: `${process.env.APP_URL}/callback`,
-        code: authorizationCode,
-        client_id: process.env.SPOTIFY_CLIENT_ID,
-        client_secret: process.env.SPOTIFY_CLIENT_SECRET,
+        code: authorizationCode
       },
     });
   }

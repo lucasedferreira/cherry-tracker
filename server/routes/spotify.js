@@ -29,7 +29,9 @@ router.post("/auth", async (req, res) => {
       tokens.refresh_token
     );
     const searchUser = await new UserRepository().findOne({
-      spotify_id: spotifyUser.id,
+      where: {
+        spotify_id: spotifyUser.id,
+      }
     });
     let userId;
     if (searchUser) {
