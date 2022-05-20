@@ -16,7 +16,7 @@ class DB {
         password: process.env.DATABASE_PASSWORD,
         host: process.env.DATABASE_HOST,
         dialect: "postgres",
-        ssl: false,
+        ssl: true,
         logging:
           !process.env.NODE_ENV || process.env.NODE_ENV === "development",
       });
