@@ -11,7 +11,6 @@ module.exports = class SpotifyHermes {
 
   get #base64Creds() {
     const authorizationCode = `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`;
-    console.log(authorizationCode);
     return new Buffer.from(authorizationCode, "utf8")
       .toString("base64")
       .replace(/\+/g, "-")
@@ -20,7 +19,6 @@ module.exports = class SpotifyHermes {
   }
 
   async #request(config) {
-    console.log("requesting");
     if (!config.headers) config.headers = {};
 
     if (config.authType === "bearer" && !this.accessToken)
@@ -42,7 +40,6 @@ module.exports = class SpotifyHermes {
         .catch(async (err) => {
           const status = err?.response?.status;
           if (status === 503) {
-            console.log("entrouuuu");
             await this.#request(config).then(resolve).catch(reject);
           }
 
@@ -57,8 +54,6 @@ module.exports = class SpotifyHermes {
   }
 
   async #refresh() {
-    console.log("refreshing");
-
     return new Promise((resolve, reject) => {
       this.#request({
         method: "post",
@@ -70,7 +65,6 @@ module.exports = class SpotifyHermes {
         authType: "basic",
       })
         .then(({ data }) => {
-          console.log("refreshed", data);
           this.accessToken = data.access_token;
           if (data.refresh_token) this.refreshToken = data.refresh_token;
           resolve();

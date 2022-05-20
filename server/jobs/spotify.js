@@ -1,8 +1,8 @@
 module.exports = [
-  {
-    cronExpression: "* * * * *",
-    function: () => {
-      console.log("cron job");
-    },
-  },
+  // {
+  //   cronExpression: "* * * * *",
+  //   function: () => {
+  //     console.log("cron job");
+  //   },
+  // },
 ];
