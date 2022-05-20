@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const importModels = require("./models");
-const associations = require('./associations');
+const associations = require("./associations");
 
 class DB {
   constructor() {
@@ -15,8 +15,14 @@ class DB {
         username: process.env.DATABASE_USERNAME,
         password: process.env.DATABASE_PASSWORD,
         host: process.env.DATABASE_HOST,
+        // port: 5432,
         dialect: "postgres",
-        ssl: true,
+        dialectOptions: {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        },
         logging:
           !process.env.NODE_ENV || process.env.NODE_ENV === "development",
       });
@@ -25,7 +31,7 @@ class DB {
       this.instance = sequelize;
 
       this.instance = importModels(this.instance);
-      associations(this.instance.models)
+      associations(this.instance.models);
     }
   }
 }
