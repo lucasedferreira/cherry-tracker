@@ -1,72 +1,51 @@
 <script setup>
-import Card from "@/components/card/Card.vue";
+function generateRandomString(length) {
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-const top10 = [
-  {
-    id: 1,
-    name: "Tension",
-    artist: "Dreamcatcher",
-    image: "https://i.scdn.co/image/ab67616d00001e02dd525e34b35a55ca3763e28d",
-  },
-  {
-    id: 2,
-    name: "PTT (Paint The Town)",
-    artist: "LOONA",
-    image: "",
-  },
-  {
-    id: 3,
-    name: "11:11",
-    artist: "Taeyeon",
-    image: "",
-  },
-  {
-    id: 4,
-    name: "BOCA",
-    artist: "Dreamcatcher",
-    image: "",
-  },
-  {
-    id: 5,
-    name: "PIRI",
-    artist: "Dreamcatcher",
-    image: "",
-  },
-  {
-    id: 6,
-    name: "Fine",
-    artist: "Taeyeon",
-    image: "",
-  },
-  {
-    id: 7,
-    name: "Scream",
-    artist: "Dreamcatcher",
-    image: "",
-  },
-  {
-    id: 8,
-    name: "O.O",
-    artist: "NMIXX",
-    image: "",
-  },
-  {
-    id: 9,
-    name: "Stay",
-    artist: "Zedd, Alessia Cara",
-    image: "",
-  },
-  {
-    id: 10,
-    name: "Jazz Bar",
-    artist: "Dreamcatcher",
-    image: "",
-  },
-];
+  for (var i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
+function generateSpotifyLink() {
+  const baseUrl = "https://accounts.spotify.com/authorize";
+
+  const state = generateRandomString(16);
+  localStorage.setItem("state", state);
+
+  const params = {
+    response_type: "code",
+    client_id: "e769581041ff48c5b45309cfc81c2966",
+    scope: "user-read-private user-read-email user-top-read",
+    redirect_uri: `${import.meta.env.VITE_APP_URL}/callback`,
+    state: state
+  };
+
+  let urlParams = [];
+  for (const param of Object.entries(params)) {
+    const key = param[0];
+    const value = param[1];
+    urlParams.push(`${key}=${value}`);
+  }
+
+  return `${baseUrl}?${urlParams.join('&')}`;
+}
+
+const link = generateSpotifyLink();
 </script>
 
 <template>
   <div>
-    <Card :top10="top10" />
+    <h1>Bem vindo</h1>
+    <a
+      :href=link
+    >
+      login
+    </a>
   </div>
 </template>
+
+<style></style>

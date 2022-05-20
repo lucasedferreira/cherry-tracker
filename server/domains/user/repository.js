@@ -1,4 +1,4 @@
-const sequelize = require('../../database/config');
+const sequelize = require("../../database/config");
 
 module.exports = class UserRepository {
   constructor() {
@@ -24,5 +24,15 @@ module.exports = class UserRepository {
 
   get() {
     return this.model.findAll();
+  }
+
+  getById(id) {
+    return this.model.findOne({
+      where: { id },
+    });
+  }
+
+  findOne(options = {}) {
+    return this.model.findOne(options);
   }
 };

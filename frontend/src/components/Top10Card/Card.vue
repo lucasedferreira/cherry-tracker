@@ -1,6 +1,6 @@
 <script setup>
-import Header from "@/components/card/Header.vue";
-import List from "@/components/card/List.vue";
+import Header from "@/components/Top10Card/Header.vue";
+import List from "@/components/Top10Card/List.vue";
 
 defineProps({
   top10: {
