@@ -23,16 +23,16 @@ defineProps({
 
 <style scoped lang="scss">
 .card {
-  background-color: #010101;
+  background-color: $color-primary;
 }
 
 .content {
   transform: translateY(-10rem);
-  background-color: #010101;
+  background-color: $color-primary;
 }
 
 .transition {
-  background-color: #ec1e1e;
+  background-color: $color-secondary;
   padding: 5rem 0;
   transform: translateY(-1px);
   clip-path: polygon(

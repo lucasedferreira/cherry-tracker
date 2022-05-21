@@ -1,6 +1,6 @@
 development:
   dialect: postgres
-  datasource: host=localhost dbname=tracker user=postgres password=changeme sslmode=disable
+  datasource: host=ec2-34-201-95-176.compute-1.amazonaws.com dbname=dc7r56muoig4h user=herlydvjpbdqfl password=4ddc1b5d00762540a5b167ad028bfba2bec076d98a6e25fa2f92d4b3d538ab19
   table: migrations
   dir: database/migrations
 

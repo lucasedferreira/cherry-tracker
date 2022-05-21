@@ -17,7 +17,7 @@ defineProps({
 
 <style scoped lang="scss">
 .header {
-  background-color: #ec1e1e;
+  background-color: $color-secondary;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -26,7 +26,7 @@ defineProps({
 
   &__back {
     width: 16rem;
-    color: #010101;
+    color: $color-primary;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     filter: blur(1px);
     z-index: 1;
@@ -69,12 +69,12 @@ defineProps({
     grid-column: 2 / span 2;
     justify-self: center;
     align-self: end;
-    border: 0.5rem solid #010101;
+    border: 0.5rem solid $color-primary;
     z-index: 2;
     width: 23rem;
 
     @media only screen and (max-width: $bp-small) {
-      border: 0.8rem solid #010101;
+      border: 0.8rem solid $color-primary;
       width: 25rem;
     }
   }

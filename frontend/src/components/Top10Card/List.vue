@@ -14,7 +14,7 @@ defineProps({
     <h2 class="list__title">Top Songs</h2>
     <div class="list__item" v-for="(item, index) in items" :key="item.id">
       <div class="list__item--rank">{{ ++index }}</div>
-      <div class="list__item--name">{{ item.name + " - " + item.artist }}</div>
+      <div class="list__item--name">{{ `${item.name} - ${item.artist}` }}</div>
       <!-- <div class="list__item--link"><ExternalLinkIcon /></div> -->
     </div>
   </div>
@@ -23,13 +23,13 @@ defineProps({
 <style scoped lang="scss">
 .list {
   margin: 2rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-primary;
   font-weight: 300;
 
   &__title {
     font-size: 3.3rem;
     text-align: center;
-    color: #ec1e1e;
+    color: $color-secondary;
 
     @media only screen and (max-width: $bp-small) {
       font-size: 5rem;
@@ -37,7 +37,7 @@ defineProps({
   }
 
   &__item {
-    color: #f7d1dc;
+    color: $color-white;
     font-size: 2rem;
     width: 100%;
     margin-bottom: 0.8rem;
@@ -62,7 +62,7 @@ defineProps({
       * {
         width: 3rem;
         height: 3rem;
-        fill: #f7d1dc;
+        fill: $color-white;
       }
     }
 

@@ -1,7 +1,8 @@
-$color-primary: #c69963;
-$color-primary-dark: #b28451;
+$color-primary: #010101;
 
-$color-secondary: #101d2c;
+$color-secondary: #ec1e1e;
+
+$color-white: #f7d1dc;
 
 $color-grey-light-1: #f9f7f6;
 $color-grey-light-2: #aaa;
@@ -10,7 +11,7 @@ $color-grey-dark-1: #54483a;
 $color-grey-dark-2: #6d5d4b;
 
 // FONT VARIABLES
-$font-primary: "Nunito", sans-serif;
+$font-primary: "Montserrat", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
 // RESPONSIVE BREAKPOINTS
@@ -39,6 +40,7 @@ html {
 body {
   font-family: $font-primary;
   color: $color-grey-dark-2;
+  background-color: #101d2c;
   font-weight: 300;
   line-height: 1.6;
 }
