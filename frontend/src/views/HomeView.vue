@@ -80,6 +80,8 @@ const link = generateSpotifyLink();
   }
 
   &__images {
+    opacity: 0.5;
+
     &--1 {
       width: 5rem;
       grid-column: 9;
