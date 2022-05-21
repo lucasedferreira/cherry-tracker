@@ -44,7 +44,7 @@ defineProps({
     line-height: 3rem;
 
     display: grid;
-    grid-template-columns: 3.5rem auto auto;
+    grid-template-columns: 3.5rem auto;
     grid-gap: 2rem;
 
     &--rank:before {
