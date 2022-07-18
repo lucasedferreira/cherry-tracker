@@ -1,8 +1,20 @@
-const sequelize = require('../../database/config');
+const sequelize = require("../../database/config");
 
 module.exports = class TopMusicRepository {
-  constructor() {
-    this.model = sequelize.instance.models.TopMusic;
+  constructor(timeTerm) {
+    switch (timeTerm) {
+      case "short_term":
+        this.model = sequelize.instance.models.ShortTopMusic;
+        break;
+
+      case "medium_term":
+        this.model = sequelize.instance.models.MediumTopMusic;
+        break;
+
+      default:
+        this.model = sequelize.instance.models.LongTopMusic;
+        break;
+    }
   }
 
   save(data) {

@@ -23,7 +23,7 @@ module.exports = class UserRepository {
   }
 
   get() {
-    return this.model.findAll();
+    return this.model.findAll({ raw: true });
   }
 
   getById(id) {

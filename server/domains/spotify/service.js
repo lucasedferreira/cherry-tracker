@@ -23,6 +23,7 @@ module.exports = class SpotifyService {
     const tracks = response.data.items;
     const parsedTop10 = tracks.map((track) => {
       return {
+        id: track.id,
         name: track.name,
         artist: track.artists
           .map((artist) => {

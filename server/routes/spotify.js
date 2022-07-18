@@ -31,7 +31,7 @@ router.post("/auth", async (req, res) => {
     const searchUser = await new UserRepository().findOne({
       where: {
         spotify_id: spotifyUser.id,
-      }
+      },
     });
     let userId;
     if (searchUser) {
@@ -71,6 +71,18 @@ const Top10Service = require("../domains/topMusic/service");
 router.get("/image", async (req, res) => {
   await new Top10Service().generateImage();
   res.send("test");
+});
+
+router.get("/save-top", async (req, res) => {
+  try {
+    await new Top10Service().saveTodayTop10();
+    res.status(201);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+  }
+
+  res.send("");
 });
 
 module.exports = router;
