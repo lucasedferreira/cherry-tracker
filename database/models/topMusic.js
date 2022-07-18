@@ -7,13 +7,17 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
       },
+      rank: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      rank: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      artist: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       date: {
         type: DataTypes.DATE,

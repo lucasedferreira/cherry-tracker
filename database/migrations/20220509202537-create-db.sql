@@ -15,8 +15,9 @@ CREATE TABLE public.users (
 
 CREATE TABLE public.top_musics (
   id uuid DEFAULT public.uuid_generate_v4() NOT NULL,
-  name character varying(255),
   rank int NOT NULL,
+  name character varying(255),
+  artist character varying(255),
   date timestamp with time zone NOT NULL,
   spotify_id character varying(255),
   user_id uuid NOT NULL,

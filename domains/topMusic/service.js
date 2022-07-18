@@ -19,14 +19,14 @@ module.exports = class TopMusicService {
         user.spotify_refresh_token,
         "long_term"
       );
-      console.log(top10.items.map((music) => music.name));
 
-      Promise.map(
+      await Promise.map(
         top10.items,
         async (music, index) => {
           await topMusicRepository.save({
-            name: music.name,
             rank: index + 1,
+            name: music.name,
+            artist: music.artists[0].name,
             date: moment().startOf('day'),
             spotify_id: music.id,
             user_id: user.id,
