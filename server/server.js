@@ -7,6 +7,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const moment = require('moment-timezone');
+moment.tz.setDefault("America/Sao_Paulo");
 
 (async () => {
   require("./routes")(app);
